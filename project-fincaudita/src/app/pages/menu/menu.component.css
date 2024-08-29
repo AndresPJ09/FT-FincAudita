@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden; /* Evita que el contenido se desborde */
+  
 }
 
 /* Estilos para el título del navbar */
@@ -34,15 +35,19 @@
   color: black;
   text-decoration: none;
   font-size: 18px;
+  display: flex; /* Flexbox para alinear ícono y texto */
   display: block;
   padding: 10px;
-  text-align: center;
+  text-align: left; /* Alinea el texto a la izquierda */
   width: 100%; /* Asegura que el enlace ocupe todo el ancho */
 }
+
 
 .navbar a:hover,
 .navbar a.active {
   background-color: #44E32A; /* Color verde para hover y elemento activo */
+  border: 1px solid #44E32A; /* Bordes verdes */
+  border-radius: 5px; /* Bordes redondeados */
 }
 
 
@@ -53,9 +58,21 @@
   color: black; /* Letra negra */
   border: none;
   width: 100%; /* Asegura que ocupe todo el ancho */
-  text-align: center;
+  text-align: left; /* Alinea el texto a la izquierda */
+  padding-left: 10px; /* Ajusta el espacio para el ícono */
   font-size: 18px; /* Ajusta el tamaño de la fuente */
 }
+
+.navbar .accordion-button i {
+  margin-right: 8px; /* Añade espacio entre el ícono y el texto */
+}
+
+/* Elimina el efecto de selección del acordeón */
+.navbar .accordion-button:focus {
+  box-shadow: none; /* Elimina el efecto de foco */
+  outline: none; /* Elimina el contorno de enfoque */
+}
+
 
 .navbar .accordion-button:hover {
   color: black; /* Letra negra al hacer hover */
@@ -85,11 +102,6 @@
 }
 
 
-.navbar .accordion-body {
-  padding: 0;
-  background-color: #F2F2F2; /* Mismo color de fondo que el navbar */
-}
-
 /* Estilo para los elementos de la lista dentro del acordeón */
 .navbar .list-group-item {
   list-style-type: none;
@@ -106,5 +118,15 @@
   margin: 0;
   flex-grow: 1; 
   width: 100%
+  
+  
 }
 
+.navbar .list-group-item a {
+  display: flex; /* Flexbox para alinear ícono y texto */
+  align-items: center;
+}
+
+.navbar .list-group-item a i {
+  margin-right: 8px; /* Añade espacio entre el ícono y el texto */
+}

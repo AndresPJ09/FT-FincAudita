@@ -1,23 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { SvgsComponent } from "../svgs/svgs.component";
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { CdkAccordionModule } from '@angular/cdk/accordion'; // Importa el módulo del acordeón
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [SvgsComponent,RouterOutlet, RouterLink, RouterLinkActive, CdkAccordionModule],
+  imports: [SvgsComponent,RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
-  tabs = [
-    { title: 'Role', content: 'Content for Role' },
-    { title: 'User', content: 'Content for User' },
-    { title: 'Modulo', content: 'Content for Modulo' },
-    { title: 'View', content: 'Content for View' },
-    { title: 'Person', content: 'Content for Person' },
-  ];
+  @ViewChild('collapseOne') collapseOne: ElementRef | undefined;
 
+  toggleAccordion() {
+    if (this.collapseOne) {
+      const collapseElement = this.collapseOne.nativeElement;
+      const isCollapsed = collapseElement.classList.contains('show');
+      if (isCollapsed) {
+        collapseElement.classList.remove('show');
+      } else {
+        collapseElement.classList.add('show');
+      }
+    }
+  }
   
 }
